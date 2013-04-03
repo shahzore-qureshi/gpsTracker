@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.shaq1nj.locationTrackerComplete"
+      android:versionCode="1"
+      android:versionName="1.0">
+      
+	<uses-sdk android:minSdkVersion="8"  android:targetSdkVersion="17"/>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
+	<uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+	<!-- <uses-permission android:name="android.permission.BROADCAST_SMS"></uses-permission> -->
+	<uses-permission android:name="android.permission.BROADCAST_STICKY"></uses-permission>
+	
+    <application android:label="@string/app_name" android:icon="@drawable/logo" android:allowBackup="true">
+        <activity android:name="com.shaq1nj.locationTrackerComplete.Driver"
+                  android:label="@string/app_name"
+                  android:theme="@style/Theme.Transparent" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.shaq1nj.locationTrackerComplete.Preferences"
+                  android:label="@string/app_name">
+        </activity>
+<!--         <activity android:name=".SendEmail" -->
+<!--                   android:label="@string/app_name"> -->
+<!--         </activity> -->
+<!--         <activity android:name=".SendSMS" -->
+<!--                   android:label="@string/app_name"> -->
+<!--         </activity> -->
+<!--         <activity android:name=".SendEmailConnectChange" -->
+<!--                   android:label="@string/app_name"> -->
+<!--         </activity> -->
+        <receiver android:name="com.shaq1nj.locationTrackerComplete.SMSReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="android.provider.Telephony.SMS_RECEIVED" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.shaq1nj.locationTrackerComplete.SendEmail" android:enabled="true">
+			<intent-filter>
+				<action android:name="com.shaq1nj.locationTrackerComplete.SendEmail" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.shaq1nj.locationTrackerComplete.SendSMS" android:enabled="true">
+			<intent-filter>
+				<action android:name="com.shaq1nj.locationTrackerComplete.SendSMS" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.shaq1nj.locationTrackerComplete.SendEmailConnectChange" android:enabled="false">
+			<intent-filter>
+				<action android:name="com.shaq1nj.locationTrackerComplete.SendEmailConnectChange" />
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.shaq1nj.locationTrackerComplete.ConnectionChangeReceiver" android:enabled="false">
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+		</receiver>
+
+    </application>
+</manifest>

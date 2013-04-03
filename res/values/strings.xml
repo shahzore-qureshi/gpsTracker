@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Driver!</string>
+    <string name="app_name">Android Tracker</string>
+    <string name="email">Set Up Email</string>
+    <string name="email_condensed">Enter all of your email settings, including smtp and ports, here.</string>
+</resources>

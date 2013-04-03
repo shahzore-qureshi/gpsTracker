@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+		<PreferenceCategory
+				android:title="Automated Response Settings">
+				<EditTextPreference
+                        android:title="Keyword Text for Email"
+                        android:summary="Change text that app will respond to and send automated GPS email"
+                        android:key="keyemail"
+                        android:defaultValue="" />
+                <EditTextPreference
+                        android:title="Keyword Text for SMS"
+                        android:summary="Change text that app will respond to and send automated GPS SMS"
+                        android:key="keysms"
+                        android:defaultValue="" />
+        </PreferenceCategory>
+        <PreferenceCategory
+                android:title="Email Settings">
+                
+                <!-- <PreferenceScreen
+                android:key="emailscreen"
+                android:title="Set Up Email"
+                android:summary="Enter your email's username, password, smtp settings, and more."> -->
+                <EditTextPreference
+                        android:title="Email Address (Username)"
+                        android:summary="Example: cookies@gmail.com"
+                        android:key="username"
+                        android:defaultValue="" />
+                <EditTextPreference
+                        android:title="Password"
+                        android:summary="Example: cookies123"
+                        android:key="password" 
+                        android:password="true"
+                        android:defaultValue="" /> 
+                <EditTextPreference
+                        android:title="SMTP Server Name"
+                        android:summary="Example: smtp.googlemail.com"
+                        android:key="smtp" 
+                        android:defaultValue="" />
+                <EditTextPreference
+                        android:title="SMTP Port"
+                        android:summary="Example: 465"
+                        android:key="port" 
+                        android:defaultValue="" />
+                <CheckBoxPreference
+                        android:title="SSL/TLS Enabled"
+                        android:summary="Double check this setting with your email provider"
+                        android:defaultValue="false"
+                        android:key="ssl" />
+                <EditTextPreference
+                        android:title="Send Email to..."
+                        android:summary="Example: cupcakes@aol.com"
+                        android:key="sendTo" 
+                        android:defaultValue="" />
+                <EditTextPreference
+                        android:title="Subject of Email"
+                        android:summary="Example: Phone's Coordinates"
+                        android:key="subject" 
+                        android:defaultValue="" />
+                <Preference
+	                android:title="Send Email Now"
+	                android:summary="Use for Testing Purposes"
+	                android:key="sendEmail" />
+        		<!-- </PreferenceScreen>   --> 
+        </PreferenceCategory>
+        <PreferenceCategory
+                android:title="SMS Settings">
+        		<EditTextPreference
+                        android:title="Send SMS To..."
+                        android:summary="Example: 1-201-666-1922"
+                        android:key="smsTo"
+                        android:defaultValue="" />
+                <Preference
+	                android:title="Send SMS Now"
+	                android:summary="Use for Testing Purposes"
+	                android:key="sendSMS" />
+        </PreferenceCategory>
+        <PreferenceCategory
+                android:title="General Settings">
+                <Preference
+	                android:title="Disable GPS Tracking"
+	                android:summary="This will turn off everything"
+	                android:key="turnOff" />
+	            <Preference
+	                android:title="Clear All Settings"
+	                android:summary="This will wipe all email/sms settings."
+	                android:key="clearAll" />
+        </PreferenceCategory>
+</PreferenceScreen>
