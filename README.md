@@ -4,6 +4,7 @@ Android Tracker
 Want to find the location of your phone through GPS? This application will report the location via texting secret keywords from another phone.
 
 Directions:
+
 1) Set up two special keywords that you can use to text your phone in the future. 
    - When you text the first keyword to your phone, the application will send an email to a secret email address of your choosing with your phone's GPS Coordinates and a map of your phone's location.
    - When you text the second keyword to your phone, the application will send a text message back to you with a map of your phone's location.
