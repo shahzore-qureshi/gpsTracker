@@ -4,6 +4,7 @@ Android Tracker
 Want to find the location of your phone via sending a secret text message? Well, now you can!
 
 Directions:
+
 1) Set up a special keyword that you can use to "ask" your phone for its location in the future. 
    - When you text this keyword to your phone, the application will send a text message back with a map of your phone's location.
    - This task is done secretly in the background. This is particularly useful in a situation where your phone is in the wrong hands.
