@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.IBinder;
+import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
@@ -27,8 +28,8 @@ public class LocationTrackingService extends Service {
 		
 		IntentFilter filter = new IntentFilter();
 		filter.addAction("android.provider.Telephony.SMS_RECEIVED");
+		filter.setPriority(100); //Allows app to hide the SMS keyword from the regular inbox.
 		registerReceiver(receiver, filter);
-		
 		
 		return START_STICKY;
 	}
@@ -43,6 +44,10 @@ public class LocationTrackingService extends Service {
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
+			
+			if (intent == null)
+				return;
+			
 			String action = intent.getAction();
 			if(action.equals("android.provider.Telephony.SMS_RECEIVED"))
 			{
@@ -57,29 +62,42 @@ public class LocationTrackingService extends Service {
 				}
 				
 				String messageBody = smsMessage[0].getMessageBody();
+				final String originatingNumber = smsMessage[0].getOriginatingAddress();
 				
 				SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 				String smsKey = prefs.getString("keySMS", "");
+				
 				
 				Log.v(TAG, "SMS Key: " + smsKey);
 				
 				if (messageBody.equals(smsKey))
 				{
-					Location location = getLocation();
-					String result = "";
+					abortBroadcast(); //Prevent other SMS applications from receiving the message.
+					sendSMS("[AndroidTracker] Request for location has been processed. Please wait 2 minutes.", originatingNumber);
 					
-					if (location != null)
+					Runnable backgroundTask = new Runnable()
 					{
-						result = "MAP: http://www.google.com/search?hl=en&source=hp&biw=1366&bih=642&q="
-								+ location.getLatitude() + "%2C+" + location.getLongitude() + "&aq=f&aqi=&aql=&oq=";
-					}
-					else
-					{
-						result = "Location not found.";
-					}
+						@Override
+						public void run() {
+							Looper.prepare();
+							Location location = getLocation();
+							String result = "";
+							
+							if (location != null)
+							{
+								result = "MAP: http://www.google.com/search?hl=en&source=hp&biw=1366&bih=642&q="
+										+ location.getLatitude() + "%2C+" + location.getLongitude() + "&aq=f&aqi=&aql=&oq=";
+							}
+							else
+							{
+								result = "Location not found.";
+							}
+							
+							sendSMS(result, originatingNumber);
+						}
+					};
 					
-					
-					sendSMS(result, smsMessage[0].getOriginatingAddress());
+					new Thread(backgroundTask).start();
 				}
 			}   
 		}
