@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry exported="true" kind="lib" path="lib/activation.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/additionnal.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/mail.jar"/>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="com/shaq1nj/locationTracker/ConnectionChangeReceiver.java|com/shaq1nj/locationTracker/Driver.java|com/shaq1nj/locationTracker/Mail.java|com/shaq1nj/locationTracker/SMSReceiver.java|com/shaq1nj/locationTracker/SendEmail.java|com/shaq1nj/locationTracker/SendEmailConnectChange.java|com/shaq1nj/locationTracker/SendSMS.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="libs/android-support-v4.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

@@ -1,30 +1,25 @@
 Android Tracker
 ==========
 
-Want to find the location of your phone through GPS? This application will report the location via texting secret keywords from another phone.
+Want to find the location of your phone via sending a secret text message? Well, now you can!
 
 Directions:
+1) Set up a special keyword that you can use to "ask" your phone for its location in the future. 
+   - When you text this keyword to your phone, the application will send a text message back with a map of your phone's location.
+   - This task is done secretly in the background. This is particularly useful in a situation where your phone is in the wrong hands.
 
-1) Set up two special keywords that you can use to text your phone in the future. 
-   - When you text the first keyword to your phone, the application will send an email to a secret email address of your choosing with your phone's GPS Coordinates and a map of your phone's location.
-   - When you text the second keyword to your phone, the application will send a text message back to you with a map of your phone's location.
-   - Both tasks are done secretly in the background. This is particularly useful in a situation where your phone is lost and/or in the wrong hands.
+2) Optional: Send a test SMS message with your phone's location to a phone number of your choosing for testing purposes.
 
-2) Add an email account that will
-   - create email messages with the phone's location
-   - send them to an email address of your choosing.
+3) Start the location tracking service. This service reads incoming SMS messages for the special keyword you specified. If the keyword is found, the service will attempt to locate your phone and send its location back to the phone number that originally sent the keyword.
 
-You will need the SMTP server information of your email account, such as server name/port/security. Just look it up on Google. For example, if you look up "Gmail SMTP server settings", you will get many results. Gmail's SMTP server name is smtp.gmail.com and its SMTP port is 465. Gmail also uses SSL security.
+NOTE: For the best accuracy, make sure that the GPS is on. The application will only use the GPS when it detects a secret keyword. In all other cases, the GPS will be kept in idle mode, which saves your battery. To report a very accurate location, the GPS is used for 60-120 seconds every time the application receives
+the secret keyword.
 
-3) Choose an email address that the application will send your location to. 
+License
+==========
 
-4) For testing purposes, press the "Send Email" or "Send SMS" buttons to send your location. For SMS, specify a phone number first.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-5) If you so desire, you can clear your settings at any time.
+http://www.apache.org/licenses/LICENSE-2.0
 
-NOTE: Please keep the GPS on. The application will only use the GPS when it detects a secret keyword. In all other cases, the GPS will be kept in idle mode, which saves your battery. To report an accurate location, the GPS is used for 60 seconds every time the application receives
-a secret keyword.
-
-To Do: 
-- Sometimes, application is unable to receive SMS broadcasts. I will need to investigate further.
-- Create button for disabling text parsing. 
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.

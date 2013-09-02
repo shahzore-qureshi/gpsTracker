@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Driver!</string>
     <string name="app_name">Android Tracker</string>
-    <string name="email">Set Up Email</string>
-    <string name="email_condensed">Enter all of your email settings, including smtp and ports, here.</string>
+    <string name="switchTextOff">OFF</string>
+    <string name="switchTextOn">ON</string>
+    <string name="switchOffSummary">Tracking is DISABLED.</string>
+    <string name="switchOnSummary">Tracking is ENABLED.</string>
 </resources>
