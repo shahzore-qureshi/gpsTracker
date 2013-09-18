@@ -1,6 +1,8 @@
 Android Tracker
 ==========
 
+*Currently taken down from Play Store due to maintenance.*
+
 Want to find the location of your phone via sending a secret text message? Well, now you can!
 
 Directions:
